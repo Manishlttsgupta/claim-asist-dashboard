@@ -2,17 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const cardTypes = [
-  { type: "total", label: "Total Claims" },
-  { type: "approved", label: "AI Approved" },
-  { type: "rejected", label: "AI Rejected" },
-  { type: "pending", label: "Pending Review" }
+  { type: "total", label: "Total Claims", colorClass: "" },
+  { type: "approved", label: "AI Approved", colorClass: "approved" },
+  { type: "rejected", label: "AI Rejected", colorClass: "rejected" },
+  { type: "pending", label: "Pending Review", colorClass: "pending" }
 ];
 
 const SummaryCards = ({ stats }) => (
   <div className="summary-cards">
     {cardTypes.map((card) => (
-      <div key={card.type} className={`summary-card ${card.type}`}>
-        <div className="card-value">{stats[card.type]}</div>
+      <div key={card.type} className="summary-card">
+        <div className={`card-value ${card.colorClass}`}>{stats[card.type]}</div>
         <div className="card-label">{card.label}</div>
       </div>
     ))}
